@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+
 
 <% provide(:title, @poeme.title.to_s + " - Poème de " + @auteur.name) %>
 <% provide(:description, @poeme.title.to_s + " - Le texte du poème" ) %>
@@ -75,8 +75,7 @@
 		
 		
 <br />
-<%= link_to 'Edit', edit_poeme_path(@poeme) %> |
-<%= link_to 'Back', poemes_path %>
+
 
 	</div>
 	

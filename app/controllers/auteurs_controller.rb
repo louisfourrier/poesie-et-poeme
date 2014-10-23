@@ -1,5 +1,6 @@
 class AuteursController < ApplicationController
   before_action :set_auteur, only: [:show, :edit, :update, :destroy]
+  before_filter :no_access, only:[:edit, :new, :create, :destroy]
   # GET /auteurs
   # GET /auteurs.json
   def index

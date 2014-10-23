@@ -7,19 +7,27 @@
 		<%= csrf_meta_tags %>
 	</head>
 	<body>
-		
+
 		<%= render partial: 'layouts/navbar' %>
-		
+
 		<div class="container-fluid main-container">
 			<div class="row">
 				<div class="col-md-12">
 					<!-- Return to Top -->
 					<a href="javascript:" id="return-to-top" title="Return to top button"><i class="fa fa-arrow-up"></i></a>
+					<div class="container">
+						<% flash.each do |key, value| %>
+						<div class="alert alert-warning text-center">
+							<strong><%= value %></strong>
+						</div>
+						<% end %>
+						<%= yield %>
+					</div>
 					<%= yield %>
 				</div>
 			</div>
 		</div>
-		
+
 		<div class="modal fade" id="layout-modal">
 			<div class="modal-dialog">
 				<div class="modal-content">
@@ -38,10 +46,8 @@
 				</div>
 			</div>
 		</div>
-		
-	
-		
+
 		<%= render partial: 'layouts/end_scripts' %>
-		
+
 	</body>
 </html>

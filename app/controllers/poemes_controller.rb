@@ -1,5 +1,6 @@
 class PoemesController < ApplicationController
   before_action :set_poeme, only: [:show, :edit, :update, :destroy]
+  before_filter :no_access, only:[:edit, :new, :create, :destroy]
 
   # GET /poemes
   # GET /poemes.json
