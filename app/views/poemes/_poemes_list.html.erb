@@ -1,0 +1,35 @@
+<div class="text-center">
+	<%= will_paginate(poemes, :params => { :controller => "poemes", :action => "index", :format => "html" },  renderer: BootstrapPagination::Rails) %>
+</div>
+
+<table class="table table-poeme">
+  <thead>
+    <tr>
+      <th>Titre</th>
+      
+      <th>Recueil</th>
+    
+      
+      <th>Auteur</th>
+      
+    </tr>
+  </thead>
+
+  <tbody>
+    <% poemes.each do |poeme| %>
+      <tr>
+        <td><%= link_to poeme.title, poeme %></td>
+
+        <td><%= poeme.recueil %></td>
+    
+
+        <td><%= link_to poeme.auteur.name, poeme.auteur %></td>
+  
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<div class="text-center">
+	<%= will_paginate(poemes, :params => { :controller => "poemes", :action => "index", :format => "html" },  renderer: BootstrapPagination::Rails) %>
+</div>
+

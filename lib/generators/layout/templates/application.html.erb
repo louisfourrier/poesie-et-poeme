@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/WebPage">
+	<head>
+		<%%= render partial: 'layouts/meta_common' %>
+		<%%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+		<%%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+		<%%= csrf_meta_tags %>
+	</head>
+	<body>
+		
+		<%%= render partial: 'layouts/navbar' %>
+		
+		<div class="container-fluid main-container">
+			<div class="row">
+				<div class="col-md-12">
+					<%%= yield %>
+				</div>
+			</div>
+		</div>
+		
+		<div class="modal fade" id="layout-modal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">
+							x
+						</button>
+						<h4 class="modal-title green"></h4>
+					</div>
+					<div class="modal-body"></div>
+					<div class="modal-footer">
+						<button class="btn btn-danger" data-dismiss="modal">
+							<%%= t('modal_close') %>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<%%= render partial: 'layouts/footer' %>
+		
+		<%%= render partial: 'layouts/end_scripts' %>
+		
+	</body>
+</html>

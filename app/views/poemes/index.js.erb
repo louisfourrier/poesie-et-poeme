@@ -1,0 +1,3 @@
+$(function(){
+	$("#insert-poemes").html("<%= escape_javascript render(partial: 'poemes_list', locals:{poemes: @poemes})%>");
+});

@@ -1,0 +1,36 @@
+# == Schema Information
+#
+# Table name: poemes
+#
+#  id            :integer          not null, primary key
+#  title         :string(255)
+#  content       :text
+#  recueil       :text
+#  slug          :string(255)
+#  written_date  :date
+#  auteur_id     :integer
+#  created_at    :datetime
+#  updated_at    :datetime
+#  research_name :text
+#  first_letter  :string(255)
+#  html_content  :text
+#  crawl_url     :text
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  content: MyText
+  recueil: MyText
+  slug: MyString
+  written_date: 2014-10-21
+  auteur_id: 
+
+two:
+  title: MyString
+  content: MyText
+  recueil: MyText
+  slug: MyString
+  written_date: 2014-10-21
+  auteur_id: 

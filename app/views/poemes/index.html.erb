@@ -1,0 +1,41 @@
+<% provide(:title, "Liste des poèmes francais - Poésie") %>
+<% provide(:description, "Liste des grands poèmes francais. Poèsie francaise" ) %>
+<% provide(:keywords,"poèmes, contines, poètes, langue francaise, poésie, poesie, poèmes, poemes, biographie, recueil, oeuvre, grands classiques")%>
+
+
+
+<h1 class="page-header text-center nadvence-box box-big-title">Liste des poèmes</h1>
+
+<div class="col-md-6 col-md-offset-3">
+	    <input id="firstletters" type="text" name="firstletter" class="form-control search-input" autofocus="autofocus" placeholder="Rechercher un Poème" value="<%= params[:starting_letter] %>" />
+</div>
+
+
+<div class="col-md-10 col-md-offset-1" id="insert-poemes">
+	<%= render partial: "poemes/poemes_list", locals:{poemes: @poemes}%>
+</div>
+
+<br>
+
+<%= link_to 'New Poeme', new_poeme_path %>
+
+
+
+<script>
+	$(function() {
+		$("#firstletters").on('input',function(e){
+			//alert('change');
+			$("#insert-poemes").html('<div class="text-center"><%= j image_tag "loading-glasses.gif"%></div>');
+			var letters = $("#firstletters").val();
+			$.ajax({
+				url : "/poemes.js",
+				type : "GET",
+				dataType: "script",
+				data : {
+					starting_letter : letters
+					
+				}
+			})
+		})
+	}); 
+</script>

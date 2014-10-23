@@ -1,0 +1,85 @@
+<p id="notice"><%= notice %></p>
+
+<% provide(:title, @poeme.title.to_s + " - Poème de " + @auteur.name) %>
+<% provide(:description, @poeme.title.to_s + " - Le texte du poème" ) %>
+<% provide(:keywords, @poeme.title.to_s + ", poème, poème, poème de " + @auteur.name)%>
+
+
+<p id="notice">
+	<%= notice %>
+</p>
+
+<div class="row" itemtype="http://schema.org/CreativeWork">
+	
+	
+	
+	<div class="col-sm-3 sidebar">
+		<div class="nadvence-box col-md-12" itemprop="author" itemscope itemtype="http://schema.org/Author">
+			<div class="text-center">
+				<img src="<%= @auteur.image_url %>" class="img-circle text-center" style="max-width: 75%; max-height: 200px;" alt="<%= @auteur.name %> - Photo" />
+				
+			</div>
+			<br />
+			<div class="box-title text-center">
+				<h2 itemprop="name"><%= link_to @auteur.name, @auteur , :itemprop => "url"%></h2>
+			</div>
+			
+			<p itemprop="description">
+				
+				<%= @auteur.description %>
+			</p>
+			<p>
+				<strong>Pays :</strong>
+				<span itemprop="nationality"><%= @auteur.country %></span>
+			</p>
+			
+			<p>
+				<strong>Dates :</strong>
+				<span itemprop="birthDate"><%= @auteur.birth_date_f  %></span> - <span itemprop="deathDate"><%= @auteur.death_date_f  %></span>
+			</p>
+			
+			<p>
+				<strong>Nombre de poèmes :</strong>
+				<%= @auteur.poemes_count %>
+			</p>
+			
+		</div>
+		<div class="nadvence-box col-md-12">
+			<div class="box-title">
+				Recueil du poème
+			</div>
+			<p>
+				
+				<%= @poeme.recueil %>
+			</p>
+		</div>
+		<div class="nadvence-box col-md-12">
+			<div class="box-title">
+				Autres Poèmes de l'auteur
+			</div>
+
+			<% @auteur.poemes.order("RANDOM ()").limit(10).each do |poeme| %>
+			<p><%= link_to poeme.title, poeme%></p>
+			<% end %>
+		</div>
+		
+		
+	</div>
+	<div class="col-sm-9 col-sm-offset-3">
+	<h1 class="page-header text-center nadvence-box box-big-title">Poème :  <strong class="color-nadvence" itemprop="headline"><%= @poeme.title %></strong></h1>
+		<br />
+		<div class="text-center poeme-content" itemprop="text">
+		<%= @poeme.content.html_safe%>
+		</div>
+		
+		
+		
+<br />
+<%= link_to 'Edit', edit_poeme_path(@poeme) %> |
+<%= link_to 'Back', poemes_path %>
+
+	</div>
+	
+</div>
+
+

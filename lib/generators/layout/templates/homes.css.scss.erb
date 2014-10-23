@@ -1,0 +1,222 @@
+// Place all the styles related to the homes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+/* Sticky footer styles
+-------------------------------------------------- */
+
+@import 'colors';
+
+@mixin color-transition($color) {
+  &:hover {
+    i{
+       color: $color;
+    }  
+  }
+}
+
+.linkedin-bg{
+    @include color-transition($linkedin);
+}
+.pinterest-bg{
+    @include color-transition($pinterest);
+}
+.twitter-bg{
+    @include color-transition($twitter);
+}
+.facebook-bg{
+    @include color-transition($facebook);
+}
+.google-plus-bg{
+    @include color-transition($google-plus);
+}
+
+.facebook-back{
+  background-color: $facebook;
+  &:hover {
+    background-color: $facebook;
+  }
+}
+.twitter-back{
+  background-color: $twitter;
+   &:hover {
+     background-color: $twitter;
+  }
+}
+.google-plus-back{
+  background-color: $google-plus;
+   &:hover {
+     background-color: $google-plus;
+  }
+}
+
+.no_underline{
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.modify-btn{
+  border-color:transparent !important;
+}
+
+/* change the path of icons for bootstrap */
+@font-face {
+  font-family: 'Glyphicons Halflings';
+  src: url(<%%= asset_path 'glyphicons-halflings-regular.eot' %>);
+  src: url(<%%= asset_path 'glyphicons-halflings-regular.eot?#iefix' %>) format('embedded-opentype'), 
+       url(<%%= asset_path 'glyphicons-halflings-regular.woff' %>) format('woff'), 
+       url(<%%= asset_path 'glyphicons-halflings-regular.ttf' %>) format('truetype'), 
+       url(<%%= asset_path 'glyphicons-halflings-regular.svg#glyphicons_halflingsregular' %>) format('svg');
+}
+
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  height: 100%;
+  font-family: 'open-sans';
+   margin-bottom: 60px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5;
+}
+
+
+.main-container{
+  margin-top: 40px;
+  height: 100%;
+}
+
+.navbar-nadvence{
+  color: grey;
+  background-color: white;
+  border-bottom: 1px solid #e7e7e7 !important;
+  
+}
+.navbar-brand{
+  color: #28c3ab !important;
+  font-size: inherit;
+  
+}
+
+.navbar-nav{
+  li{
+    font-size: 16px;
+  }
+}
+
+h1.navbar-h1{
+  margin: 0px;
+  font-size: 30px;
+  padding-bottom: 10px;
+}
+
+.nadvence-header{
+  color: #28c3ab !important;
+}
+
+
+.nadvence-box{
+  margin-top: 10px;
+  padding: 20px;
+  opacity: 0.9;
+  background-color: rgb(247, 247, 247);
+}
+
+
+.box-title{
+  text-transform: uppercase;
+  font-family: "STXihei", Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 100;
+  letter-spacing: 1px;
+  color: rgb(103, 106, 108);
+  font-size: 18px;
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+}
+
+.nadvence-family{
+  text-transform: uppercase;
+  font-family: "STXihei", Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 100;
+  letter-spacing: 1px;
+}
+
+.box-big-title{
+  text-transform: uppercase;
+  font-family: "STXihei", Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 100;
+  letter-spacing: 1px;
+  color: rgb(103, 106, 108);
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+}
+
+.small-text{
+	font-size: 13px;
+}
+
+a:hover{
+	color:$nadvence !important;
+	background-color: transparent !important;
+}
+
+// For anchor link with a fixed navbar
+.anchor{
+	display: block;
+  height: 60px; /*same height as header*/
+  margin-top: -60px; /*same height as header*/
+  visibility: hidden;
+}
+
+.color-nadvence{
+	color: $nadvence;
+}
+
+// CSS checcbox
+
+input[type=checkbox].css-checkbox {
+  display: none;
+}
+
+input[type=checkbox].css-checkbox + label.css-label {
+  padding-left: 25px;
+  height: 20px;
+  display: inline-block;
+  line-height: 20px;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  //font-size: 20px;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+input[type=checkbox].css-checkbox:checked + label.css-label {
+  background-position: 0 -20px;
+}
+
+
+label.css-label {
+  margin: 2px;
+  background-image: url(<%%= asset_path 'checkbox_green_nadvence.png' %>);
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  vertical-align: baseline !important;
+}
+
+

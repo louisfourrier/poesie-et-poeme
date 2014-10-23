@@ -1,0 +1,47 @@
+<% provide(:title, "Liste des poètes francais - Poésie") %>
+<% provide(:description, "Liste des grands poètes francais. Poèsie francaise" ) %>
+<% provide(:keywords,"auteurs, poètes, langue francaise, poésie, poesie, poèmes, poemes, biographie, recueil, oeuvre, grands classiques")%>
+
+
+<h1 class="page-header text-center nadvence-box box-big-title">Grands Poètes Francais</h1>
+
+<div class="text-center pagination-letter">
+	<% ("A".."Z").to_a.each do |letter| %>
+		<%= link_to letter, auteurs_path(:first_letter => letter) %>
+	<% end %>
+</div>
+<br />
+<div class="col-md-6 col-md-offset-3">
+	    <input id="firstletters" type="text" name="firstletter" class="form-control search-input" autofocus="autofocus" placeholder="Rechercher un Auteur" value="<%= params[:starting_letter] %>" />
+
+</div>
+
+
+
+<div class="col-md-10 col-md-offset-1" id="insert-auteurs">
+<%= render partial:"auteurs/auteurs_list", locals:{auteurs: @auteurs}%>
+</div>
+
+<br>
+
+<%= link_to 'New Auteur', new_auteur_path %>
+
+
+<script>
+	$(function() {
+		$("#firstletters").on('input',function(e){
+			//alert('change');
+			$("#insert-auteurs").html('<div class="text-center"><%= j image_tag "loading-glasses.gif"%></div>');
+			var letters = $("#firstletters").val();
+			$.ajax({
+				url : "/auteurs.js",
+				type : "GET",
+				dataType: "script",
+				data : {
+					starting_letter : letters
+					
+				}
+			})
+		})
+	}); 
+</script>

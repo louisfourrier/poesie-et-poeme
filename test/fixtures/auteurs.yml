@@ -1,0 +1,49 @@
+# == Schema Information
+#
+# Table name: auteurs
+#
+#  id                 :integer          not null, primary key
+#  name               :string(255)
+#  description        :text
+#  description_source :text
+#  birth_date         :date
+#  death_date         :date
+#  poemes_count       :integer
+#  century            :integer
+#  first_letter       :string(255)
+#  slug               :string(255)
+#  country            :string(255)
+#  created_at         :datetime
+#  updated_at         :datetime
+#  research_name      :text
+#  html_content       :text
+#  crawl_url          :text
+#  image_url          :text
+#  date_string        :string(255)
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyText
+  description_source: MyText
+  birth_date: 2014-10-21
+  death_date: 2014-10-21
+  poemes_count: 1
+  century: 1
+  first_letter: MyString
+  slug: MyString
+  country: MyString
+
+two:
+  name: MyString
+  description: MyText
+  description_source: MyText
+  birth_date: 2014-10-21
+  death_date: 2014-10-21
+  poemes_count: 1
+  century: 1
+  first_letter: MyString
+  slug: MyString
+  country: MyString

@@ -1,0 +1,96 @@
+License
+
+pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start
+
+Installing Hstore locally
+
+First add extension to database
+
+Name of database in .yml file =>
+psql -d blogtracker_development -c 'create extension hstore;'
+
+Secondly make a migration with :hstore
+
+add_column :users, :settings, :hstore
+
+Lastly configure models
+
+store_accessor :settings, :favorite_color, :time_zone
+
+See for heroku with Hstore
+
+heroku pg:psql --app [app_name]
+ In the database console type: CREATE EXTENSION hstore;
+ 
+
+Staging app
+
+heroku create --remote staging
+Create a staging app
+
+Push 
+git push staging master
+
+Migration on the Heroku app
+
+heroku db:migrate --app [app_name]
+
+
+
+Problem with thin server
+
+lsof -wni tcp:3000
+Then you should see the rails process and you can run
+
+kill -9 processid
+you should be good to run the process now
+
+rails s thin
+
+Start local server like in production 
+
+rails server -e production
+
+Restart (after destroying all elements) to id = 1
+
+With psql
+ActiveRecord::Base.connection.reset_pk_sequence!('table_name')
+
+Staging app
+
+morning-gorge-7819
+heroku run rake db:migrate --app morning-gorge-7819
+
+Official app
+
+powerful-ravine-1609
+heroku run rake db:migrate --app powerful-ravine-1609
+heroku run rails c --app powerful-ravine-1609
+
+With dyno size
+heroku run --size=2X rake global_update --app powerful-ravine-1609
+heroku run rake global_update --app powerful-ravine-1609
+
+heroku run --size=2X NEWRELIC_AGENT_ENABLED=false rake articles_update --app powerful-ravine-1609
+
+heroku logs --tail --app powerful-ravine-1609
+
+For assets compilation
+
+RAILS_ENV=production rake assets:clean assets:precompile
+
+Push to heroku:  git push heroku master --repo powerful-ravine-1609
+
+HEROKU
+
+See all the processes taking place
+heroku ps --app powerful-ravine-1609
+
+Kill a process
+heroku ps:stop scheduler.8601 --app powerful-ravine-1609
+
+For sitemaps
+
+rake sitemap:refresh:no_ping
+rake sitemap:refresh
+

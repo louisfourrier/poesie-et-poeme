@@ -1,0 +1,28 @@
+// Place all the styles related to the poemes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.poeme-content{
+  font-size: 19px;
+}
+
+.pagination-letter{
+  font-size:25px;
+}
+
+.table-poeme{
+  th{
+    font-size: 20px;
+  }
+  td{
+    font-size: 18px;
+  }
+}
+
+.table-min-width{
+  min-width: 10em;
+}
+
+.text-bigger{
+  font-size: 1.3em;
+}

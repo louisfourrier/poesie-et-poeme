@@ -1,0 +1,54 @@
+<%= form_for(@auteur) do |f| %>
+  <% if @auteur.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@auteur.errors.count, "error") %> prohibited this auteur from being saved:</h2>
+
+      <ul>
+      <% @auteur.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :description_source %><br>
+    <%= f.text_area :description_source %>
+  </div>
+  <div class="field">
+    <%= f.label :birth_date %><br>
+    <%= f.date_select :birth_date %>
+  </div>
+  <div class="field">
+    <%= f.label :death_date %><br>
+    <%= f.date_select :death_date %>
+  </div>
+  <div class="field">
+    <%= f.label :poemes_count %><br>
+    <%= f.number_field :poemes_count %>
+  </div>
+  <div class="field">
+    <%= f.label :century %><br>
+    <%= f.number_field :century %>
+  </div>
+  <div class="field">
+    <%= f.label :first_letter %><br>
+    <%= f.text_field :first_letter %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :country %><br>
+    <%= f.text_field :country %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

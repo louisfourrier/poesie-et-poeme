@@ -1,0 +1,104 @@
+// Place all the styles related to the verbs controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.mode-title{
+  font-size: 25px;
+}
+
+.tense-title{
+  font-size:20px;
+}
+
+.tense-entries-li{
+  li{
+  font-size: 16px;
+  
+  b{
+    font-weight: 800;
+    color: red;
+  }
+  }
+}
+
+
+/* Hide for mobile, show later */
+.sidebar {
+  float: right;
+}
+
+@media (min-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 51px;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    display: block;
+    padding: 15px;
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+    //background-color: #f5f5f5;
+    border-right: 1px solid #eee;
+  }
+}
+
+
+.search-input{
+  font-size:20px;
+  height:45px;
+  padding: 8px;
+  font-family: 'Trebuchet MS', Tahoma, Verdana, Arial, sans-serif;
+}
+
+.search-container{
+  vertical-align:middle !important;
+}
+
+.nav-search-input{
+  font-size:17px;
+  padding: 5px;
+  font-family: 'Trebuchet MS', Tahoma, Verdana, Arial, sans-serif;
+}
+
+.verb-name{
+  font-size: 20px;
+}
+
+.navbar-h1{
+  font-size:30px;
+}
+
+
+.verbs-table{
+  tr{
+  th{
+    font-size:18px;
+  }
+  td{
+    font-size:20px;
+  }
+  }
+}
+// ADDTHIS
+
+.atss{
+  top: 40% !important;
+}
+
+.verbs-links{
+  a{
+    font-size:17px;
+  }
+}
+
+/* Smartphones (portrait) ----------- */
+@media only screen 
+and (max-width : 450px) {
+.navbar-h1{
+  margin: 0px;
+  font-size: 24px;
+  padding-bottom: 10px;
+}
+}

@@ -1,0 +1,34 @@
+<div class="text-center">
+	<%= will_paginate(@auteurs, :params => { :controller => "auteurs", :action => "index", :format => "html" },  renderer: BootstrapPagination::Rails) %>
+</div>
+
+
+<table class="table table-poeme">
+  <thead>
+    <tr>
+      <th class="table-min-width"><strong>Poète</strong></th>
+      <th class="table-min-width">Date</th>
+     
+      <th>Description</th>
+      <th>Pays</th>
+  
+    </tr>
+  </thead>
+
+  <tbody>
+    <% auteurs.each do |auteur| %>
+      <tr>
+        <td><strong><%= link_to auteur.name, auteur %></strong></td>
+        
+        <td><%= auteur.date_string %></td>
+        
+        <td><%= auteur.description%></td>
+        <td><%= auteur.country %></td>
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<div class="text-center">
+	<%= will_paginate(@auteurs, :params => { :controller => "auteurs", :action => "index", :format => "html" },  renderer: BootstrapPagination::Rails) %>
+</div>

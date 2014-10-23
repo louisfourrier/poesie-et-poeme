@@ -1,0 +1,10 @@
+Description:
+    The generator is used to install on a new project the basic files and configuration for a new heroku project.
+    Install bootstrap. Create a new first page and configure for unicorn and postgresql.
+
+Example:
+	rails g layout firstgenerator
+    rails generate layout Thing
+
+    This will create:
+        what/will/it/create
