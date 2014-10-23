@@ -7,91 +7,91 @@
 
 	<div class="col-md-12">
 		<br />
-		<p class="text-bigger">La poésie francaise vous propose de retrouver sur ce site tous les plus grands poètes francais et leurs poèmes du Moyen-Âge au début du XXème siècle.
-		Accèder à la page d'un auteur pour retrouver tous ses poèmes. Sur chaque poème et chaque poète nous vous fournissons une série d'informations interessantes.
-		
-			</p>
-		
-		
+		<p class="text-bigger">
+			La poésie francaise vous propose de retrouver sur ce site tous les plus grands poètes francais et leurs poèmes du Moyen-Âge au début du XXème siècle.
+			Accèder à la page d'un auteur pour retrouver tous ses poèmes. Sur chaque poème et chaque poète nous vous fournissons une série d'informations interessantes.
+
+		</p>
+
 		<div class="col-md-6 text-center">
 			<div class="nadvence-box">
-			<h2 class="nadvence-family"><%= link_to "Les auteurs", auteurs_path %></h2>
-			Tous les plus grands poètes français
+				<h2 class="nadvence-family"><%= link_to "Les auteurs", auteurs_path, :itemprop => "significantLink" %></h2>
+				Tous les plus grands poètes français
 			</div>
 		</div>
 
 		<div class="col-md-6 text-center">
 			<div class="nadvence-box">
-			<h2 class="nadvence-family"><%= link_to "Les poemes", poemes_path %></h2>
-			Accèdez à l'ensemble des poèmes du site
+				<h2 class="nadvence-family"><%= link_to "Les poemes", poemes_path, :itemprop => "significantLink" %></h2>
+				Accèdez à l'ensemble des poèmes du site
 			</div>
 		</div>
 
 	</div>
-	
+
 	<div class="col-md-12">
-		
+
 		<h3 class="text-center page-header">Exemples</h3>
 		<a href="/auteurs/victor-hugo">Victor HUGO</a> -
-		
+
 		<a href="/auteurs/emile-verhaeren">Émile VERHAEREN</a> -
-		
+
 		<a href="/auteurs/joachim-du-bellay">Joachim DU BELLAY</a> -
-		
+
 		<a href="/auteurs/paul-verlaine">Paul VERLAINE</a> -
-		
+
 		<a href="/auteurs/charles-marie-leconte-de-lisle">Charles-Marie LECONTE DE LISLE</a> -
-		
+
 		<a href="/auteurs/charles-baudelaire">Charles BAUDELAIRE</a> -
-		
+
 		<a href="/auteurs/jean-de-la-fontaine">Jean de LA FONTAINE</a> -
-		
+
 		<a href="/auteurs/jose-maria-de-heredia">José-Maria de HEREDIA</a> -
-		
+
 		<a href="/auteurs/marceline-desbordes-valmore">Marceline DESBORDES-VALMORE</a> -
-		
+
 		<a href="/auteurs/pierre-de-ronsard">Pierre de RONSARD</a> -
-		
+
 		<a href="/auteurs/albert-samain">Albert SAMAIN</a> -
-		
+
 		<a href="/auteurs/theophile-gautier">Théophile GAUTIER</a> -
-		
+
 		<a href="/auteurs/emile-nelligan">Emile NELLIGAN</a> -
-		
+
 		<a href="/auteurs/alfred-de-musset">Alfred de MUSSET</a> -
-		
+
 		<a href="/auteurs/paul-jean-toulet">Paul-Jean TOULET</a> -
-		
+
 		<a href="/auteurs/alphonse-de-lamartine">Alphonse de LAMARTINE</a> -
-		
+
 		<a href="/auteurs/jules-laforgue">Jules LAFORGUE</a> -
-		
+
 		<a href="/auteurs/rainer-maria-rilke">Rainer Maria RILKE</a> -
-		
+
 		<a href="/auteurs/rene-francois-sully-prudhomme">René-François SULLY PRUDHOMME</a> -
-		
+
 		<a href="/auteurs/charles-cros">Charles CROS</a> -
-		
+
 		<a href="/auteurs/jean-moreas">Jean MORÉAS</a> -
-		
+
 		<a href="/auteurs/maurice-rollinat">Maurice ROLLINAT</a> -
-		
+
 		<a href="/auteurs/andre-chenier">André CHÉNIER</a> -
-		
+
 		<a href="/auteurs/philippe-desportes">Philippe DESPORTES</a> -
-		
+
 		<a href="/auteurs/clement-marot">Clément MAROT</a> -
-		
+
 		<a href="/auteurs/arthur-rimbaud">Arthur RIMBAUD</a> -
-		
+
 		<a href="/auteurs/theodore-de-banville">Théodore de BANVILLE</a> -
-		
+
 		<a href="/auteurs/stephane-mallarme">Stéphane MALLARME</a> -
-		
+
 		<a href="/auteurs/theodore-agrippa-d-aubigne">Théodore Agrippa d' AUBIGNÉ</a> -
-		
+
 		<a href="/auteurs/charles-guerin">Charles GUÉRIN</a>
-		
+
 	</div>
 
 	<div class="col-md-12">
@@ -99,18 +99,37 @@
 		<div class="col-md-6 text-center">
 			<% a = Auteur.order('RANDOM()').limit(1).first %>
 			<%= link_to a do %>
-			<div class="btn btn-info btn-lg">Poète au hasard</div> 
+			<div class="btn btn-info btn-lg">
+				Poète au hasard
+			</div>
 			<% end %>
 		</div>
 
 		<div class="col-md-6 text-center">
 			<% p = Poeme.order('RANDOM()').limit(1).first %>
 			<%= link_to p do %>
-			<div class="btn btn-info btn-lg">Poème au hasard</div> 
+			<div class="btn btn-info btn-lg">
+				Poème au hasard
+			</div>
 			<% end %>
-			
+
 		</div>
 
 	</div>
+	
+	
+	<div class="col-md-12 text-center">
+		<hr />
+	
+
+		<!-- Placez cette balise où vous souhaitez faire apparaître le gadget widget. -->
+		<div class="g-page" data-href="//plus.google.com/u/0/106491433372134558043" data-showcoverphoto="false" data-rel="publisher"></div>
+	</div>
+
+	<!-- Placez cette balise dans l'en-tête ou juste avant la balise de fermeture du corps de texte. -->
+	<script src="https://apis.google.com/js/platform.js" async defer>
+		{ lang:'fr'
+		}
+	</script>
 
 </div>

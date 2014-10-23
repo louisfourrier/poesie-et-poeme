@@ -66,10 +66,12 @@ class Auteur < ActiveRecord::Base
   
   def extract_date_string
     begin
-    html = self.html_content_to_html
-    date = html.css('//*[@id="resultats_auteur"]/li/text()').text.gsub('/n', '').strip
-    self.update(:date_string => date)
+      html = self.html_content_to_html
+      date = html.css('//*[@id="resultats_auteur"]/li/text()').text.gsub('/n', '').strip
+      date = date || ""
+      self.update(:date_string => date)
     rescue
+      self.update(:date_string => "")
     end
   end
   
@@ -80,6 +82,13 @@ class Auteur < ActiveRecord::Base
     self.update(:description => description)
     rescue
     end
+  end
+  
+  def clean_description
+    description = self.description
+    description = self.gsub('Rediriger vers :', '')
+    description = self.gsub('error', '')
+    self.update(:description => description)
   end
   
   def self.execute_class_method(method_name)

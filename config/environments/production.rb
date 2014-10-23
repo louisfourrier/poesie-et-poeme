@@ -87,7 +87,7 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     address: "smtp.sendgrid.net",
     port: 587,
-    domain: 'nadvence-beta.com',
+    domain: 'poesie-et-poeme.fr',
     authentication: "plain",
     enable_starttls_auto: true,
     user_name: Rails.application.secrets.email_provider_username,
@@ -105,9 +105,9 @@ Rails.application.configure do
   # Change the address of emails of the notifications of errors
   config.middleware.use ExceptionNotification::Rack,
   :email => {
-    :email_prefix => "Nadvence Exceptions Notification",
-    :sender_address => %{"Nadvence Server" <admin@rebble.it>},
-    :exception_recipients => %w{admin@rebble.it}
+    :email_prefix => "Poesie Exceptions Notification",
+    :sender_address => %{"Poesie Server" <poesie@poesie-et-poeme.fr>},
+    :exception_recipients => %w{louis.fourrier@gmail.com}
   }
 
 end

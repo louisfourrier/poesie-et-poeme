@@ -9,24 +9,35 @@
 <meta itemprop="name" content="<%= content_for?(:title) ? yield(:title) : "PUT YOUR DESCRIPTION HERE" %>">
 <meta itemprop="description" content="<%= content_for?(:description) ? yield(:description) : "PUT YOUR DESCRIPTION HERE" %>">
 <meta name="keywords"  content="<%= content_for?(:keywords) ? yield(:keywords) : "PUT YOUR DESCRIPTION HERE" %>">
-<meta itemprop="image" content="http://www.nadvence-beta.com/assets/nadvence-share.png">
+<meta itemprop="image" content="http://www.poesie-et-poeme.fr/poesie-share.png">
 
 <!-- Twitter Card data -->
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@rebble_it">
 <meta name="twitter:title" content="<%= content_for?(:title) ? yield(:title) : "PUT YOUR DESCRIPTION HERE" %>">
 <meta name="twitter:description" content="<%= content_for?(:description) ? yield(:description) : "PUT YOUR DESCRIPTION HERE" %>">
-<meta name="twitter:image" content="http://www.nadvence-beta.com/assets/nadvence-share.png">
-<meta name="twitter:domain" content="">
+<meta name="twitter:image" content="http://www.poesie-et-poeme.fr/poesie-share.png"">
+<meta name="twitter:url" content="http://www.poesie-et-poeme.fr">
 
 <!-- Open Graph data -->
 <meta property="og:title" content="<%= content_for?(:title) ? yield(:title) : "PUT YOUR DESCRIPTION HERE" %>" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="" />
-<meta property="og:image" content="http://www.nadvence-beta.com/assets/nadvence-share.png" />
+<meta property="og:url" content="http://www.poesie-et-poeme.fr" />
+<meta property="og:image" content="http://www.poesie-et-poeme.fr/poesie-share.png"" />
 <meta property="og:description" content="<%= content_for?(:description) ? yield(:description) : "PUT YOUR DESCRIPTION HERE" %>" />
-<meta property="og:site_name" content="Poésies" />
+<meta property="og:site_name" content="Poésies et Poemes" />
 
 <!-- Google plus author -->
 <link rel="publisher" href="https://plus.google.com/+RebbleIt"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-56033623-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
 

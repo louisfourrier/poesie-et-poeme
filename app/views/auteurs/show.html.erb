@@ -16,14 +16,8 @@
 			<p>
 				<img src="<%= @auteur.image_url %>" class="img-responsive" itemprop="image" alt="<%= @auteur.name %> - Photo" />
 			</p>
-			<p>
-				<strong>ID:</strong>
-				<%= @auteur.id %>
-			</p>
-			<p>
-				<strong>Wikipedia name:</strong>
-				<%= @auteur.wikipedia_name %>
-			</p>
+			
+			
 			<p>
 				<strong>Wikipedia Url:</strong>
 				<%= link_to @auteur.wikipedia_url, @auteur.wikipedia_url, :itemprop => "sameAs" %>
@@ -81,8 +75,6 @@
 			</tbody>
 		</table>
 
-		<%= link_to 'Edit', edit_auteur_path(@auteur) %> |
-		<%= link_to 'Back', auteurs_path %>
 	</div>
 
 </div>
