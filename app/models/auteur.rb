@@ -86,8 +86,8 @@ class Auteur < ActiveRecord::Base
   
   def clean_description
     description = self.description
-    description = self.gsub('Rediriger vers :', '')
-    description = self.gsub('error', '')
+    description = description.gsub('Rediriger vers :', '')
+    description = description.gsub('error', '')
     self.update(:description => description)
   end
   
