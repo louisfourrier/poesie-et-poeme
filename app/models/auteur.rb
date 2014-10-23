@@ -85,10 +85,13 @@ class Auteur < ActiveRecord::Base
   end
   
   def clean_description
+    begin
     description = self.description
     description = description.gsub('Rediriger vers :', '')
     description = description.gsub('error', '')
     self.update(:description => description)
+   rescue
+   end
   end
   
   def self.execute_class_method(method_name)
