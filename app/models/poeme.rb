@@ -25,11 +25,22 @@ class Poeme < ActiveRecord::Base
   #validates :title, uniqueness: { case_sensitive: false }
   
   extend FriendlyId
-  friendly_id :title, use: :slugged
+  friendly_id :slug_candidates, use: :slugged
   
   after_create :update_research_name
   after_create :update_first_letter
   before_validation :set_slug_to_nil # For the friendly id gem
+  
+  def slug_candidates
+    auteur = self.auteur.name
+    tab = [:title, [:title, auteur] ]
+    return tab
+  end
+  
+  def initialize_slug
+    self.slug = nil
+    self.save
+  end
   
   def sanitize_recueil
     recueil = self.recueil.gsub('Recueil :', '').strip
