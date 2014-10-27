@@ -1,6 +1,7 @@
 <% provide(:title, @poeme.title.to_s + " - Poème de " + @auteur.name) %>
 <% provide(:description, @poeme.title.to_s + " - Le texte du poème" ) %>
 <% provide(:keywords, @poeme.title.to_s + ", poème, poème, poème de " + @auteur.name)%>
+<% provide(:og_type, "article") %>
 
 <div class="row" itemscope itemtype="http://schema.org/CreativeWork">
 

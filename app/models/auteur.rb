@@ -44,11 +44,19 @@ class Auteur < ActiveRecord::Base
   end
   
   def birth_date_f
-    self.date_string.split('-').first
+    begin
+      self.date_string.split('-').first.gsub(/[\(\)]/, '')
+    rescue
+     self.date_string.split('-').first
+    end
   end
   
   def death_date_f
-    self.date_string.split('-').last
+    begin
+      self.date_string.split('-').last.gsub(/[\(\)]/, '')
+    rescue
+      self.date_string.split('-').last
+    end
   end
   
   def recueil_set
