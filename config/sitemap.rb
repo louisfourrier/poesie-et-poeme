@@ -5,7 +5,7 @@ SitemapGenerator::Sitemap.default_host = 'http://www.poesie-et-poeme.fr'
 # For the compression of the sitemap. Disable because several servers do not support gzip
 SitemapGenerator::Sitemap.compress = false
 SitemapGenerator::Sitemap.create do
-  add 'http://www.poesie-et-poeme.fr', :changefreq => 'monthly'
+  add '/', :changefreq => 'monthly'
   add '/auteurs', :changefreq => 'monthly'
   add '/poemes', :changefreq => 'monthly'
   
