@@ -97,6 +97,7 @@ class Auteur < ActiveRecord::Base
     description = self.description
     description = description.gsub('Rediriger vers :', '')
     description = description.gsub('error', '')
+    description = description.gsub(/\[\d\]/, '')
     self.update(:description => description)
    rescue
    end

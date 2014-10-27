@@ -24,7 +24,11 @@
 
 <br>
 
-
+<div class="text-center pagination-letter col-md-12">
+	<% ("A".."Z").to_a.each do |letter| %>
+		<%= link_to letter, auteurs_path(:first_letter => letter) %>
+	<% end %>
+</div>
 
 
 <script>

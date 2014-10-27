@@ -9,8 +9,8 @@
       <th class="table-min-width"><strong>Poète</strong></th>
       <th class="table-min-width">Date</th>
      
-      <th>Description</th>
-      <th>Pays</th>
+      <th class="hidden-xs">Description</th>
+      <th class="hidden-xs">Pays</th>
   
     </tr>
   </thead>
@@ -22,8 +22,8 @@
         
         <td><%= auteur.date_string %></td>
         
-        <td><%= auteur.description%></td>
-        <td><%= auteur.country %></td>
+        <td class="hidden-xs"><%= auteur.description%></td>
+        <td class="hidden-xs"><%= auteur.country %></td>
         
       </tr>
     <% end %>
