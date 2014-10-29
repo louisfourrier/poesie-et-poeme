@@ -1,27 +1,27 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title><%= content_for?(:title) ? yield(:title) : "PUT YOUR DESCRIPTION HERE" %></title>
-<meta name="description" content="<%= content_for?(:description) ? yield(:description) : "PUT YOUR DESCRIPTION HERE" %>">
+<title><%= content_for?(:title) ? yield(:title) : "Poésie française" %></title>
+<meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Tous les grands classiques de la poésie francaise et tous les poèmes" %>">
 <meta name="language" content="fr">
 <%= favicon_link_tag 'favicon.ico' %>
 
 <!-- Schema.org markup for Google+ -->
-<meta itemprop="name" content="<%= content_for?(:title) ? yield(:title) : "PUT YOUR DESCRIPTION HERE" %>">
-<meta itemprop="description" content="<%= content_for?(:description) ? yield(:description) : "PUT YOUR DESCRIPTION HERE" %>">
+<meta itemprop="name" content="<%= content_for?(:title) ? yield(:title) : "Poésie française" %>">
+<meta itemprop="description" content="<%= content_for?(:description) ? yield(:description) : "Tous les grands classiques de la poésie francaise et tous les poèmes" %>">
 <meta name="keywords"  content="<%= content_for?(:keywords) ? yield(:keywords) : "PUT YOUR DESCRIPTION HERE" %>">
 <meta itemprop="image" content="http://www.poesie-et-poeme.fr/poesie-share.png">
 
 <!-- Twitter Card data -->
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@rebble_it">
-<meta name="twitter:title" content="<%= content_for?(:title) ? yield(:title) : "PUT YOUR DESCRIPTION HERE" %>">
-<meta name="twitter:description" content="<%= content_for?(:description) ? yield(:description) : "PUT YOUR DESCRIPTION HERE" %>">
+<meta name="twitter:title" content="<%= content_for?(:title) ? yield(:title) : "Poésie française" %>">
+<meta name="twitter:description" content="<%= content_for?(:description) ? yield(:description) : "Tous les grands classiques de la poésie francaise et tous les poèmes" %>">
 <meta name="twitter:image" content="http://www.poesie-et-poeme.fr/poesie-share.png">
 <meta name="twitter:url" content="http://www.poesie-et-poeme.fr">
 
 <!-- Open Graph data -->
-<meta property="og:title" content="<%= content_for?(:title) ? yield(:title) : "La poésie francaise" %>" />
-<meta property="og:description" content="<%= content_for?(:description) ? yield(:description) : "Tous les grands classiques de la poésie francaise et tous les poèmes." %>" />
+<meta property="og:title" content="<%= content_for?(:title) ? yield(:title) : "Poésie française" %>" />
+<meta property="og:description" content="<%= content_for?(:description) ? yield(:description) : "Tous les grands classiques de la poésie francaise et tous les poèmes" %>" />
 <meta property="og:type" content="<%= content_for?(:og_type) ? yield(:og_type) : "website" %>" />
 <meta property="og:url" content="<%= content_for?(:url) ? yield(:url) : request.original_url %>" />
 <meta property="og:image" content="<%= content_for?(:og_image) ? yield(:og_image) : "http://www.poesie-et-poeme.fr/poesie-share.png" %>" />
