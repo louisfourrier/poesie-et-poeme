@@ -20,6 +20,7 @@
 #  crawl_url          :text
 #  image_url          :text
 #  date_string        :string(255)
+#  century_float      :float
 #
 
 require 'test_helper'

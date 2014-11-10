@@ -2,50 +2,78 @@
 <% provide(:description, "Liste des grands poètes francais - Poèsie française" ) %>
 <% provide(:keywords,"auteurs, poètes, langue francaise, poésie, poesie, poèmes, poemes, biographie, recueil, oeuvre, grands classiques")%>
 
-
 <h1 class="page-header text-center nadvence-box box-big-title">Grands Poètes Francais</h1>
 
-<div class="text-center pagination-letter">
-	<% ("A".."Z").to_a.each do |letter| %>
+<div class="col-md-3">
+	<div class="nadvence-box">
+		<div class="box-title">
+				Par pays
+		</div>
+		<% Auteur.all_countries.each do |country| %>
+		<p><%= link_to country[1], categories_auteurs_path(:country => country[0]) %></p>
+		
+		<% end%>
+		
+		
+		
+	</div>
+	
+	<div class="nadvence-box">
+		<div class="box-title">
+				Par siècle
+		</div>
+		<% (14..20).to_a.each do |century| %>
+		<p><%= link_to century.to_s + " siècle", categories_auteurs_path(:century => century) %></p>
+		
+		<% end%>
+		
+		
+		
+	</div>
+	
+</div>
+
+<div class="col-md-9">
+	<div class="text-center pagination-letter">
+		<% ("A".."Z").to_a.each do |letter| %>
 		<%= link_to letter, auteurs_path(:first_letter => letter) %>
-	<% end %>
-</div>
-<br />
-<div class="col-md-6 col-md-offset-3">
-	    <input id="firstletters" type="text" name="firstletter" class="form-control search-input" autofocus="autofocus" placeholder="Rechercher un Auteur" value="<%= params[:starting_letter] %>" />
+		<% end %>
+	</div>
+	<br />
 
-</div>
+	<div class="col-md-8 col-md-offset-2">
+		<input id="firstletters" type="text" name="firstletter" class="form-control search-input" autofocus="autofocus" placeholder="Rechercher un Auteur" value="<%= params[:starting_letter] %>" />
 
+	</div>
 
+	<div class="col-md-12" id="insert-auteurs">
+		<%= render partial:"auteurs/auteurs_list", locals:{auteurs: @auteurs}%>
+	</div>
 
-<div class="col-md-10 col-md-offset-1" id="insert-auteurs">
-<%= render partial:"auteurs/auteurs_list", locals:{auteurs: @auteurs}%>
-</div>
+	<br>
 
-<br>
-
-<div class="text-center pagination-letter col-md-12">
-	<% ("A".."Z").to_a.each do |letter| %>
+	<div class="text-center pagination-letter col-md-12">
+		<% ("A".."Z").to_a.each do |letter| %>
 		<%= link_to letter, auteurs_path(:first_letter => letter) %>
-	<% end %>
+		<% end %>
+	</div>
 </div>
-
 
 <script>
-	$(function() {
-		$("#firstletters").on('input',function(e){
-			//alert('change');
-			$("#insert-auteurs").html('<div class="text-center"><%= j image_tag "loading-glasses.gif"%></div>');
-			var letters = $("#firstletters").val();
-			$.ajax({
-				url : "/auteurs.js",
-				type : "GET",
-				dataType: "script",
-				data : {
-					starting_letter : letters
-					
-				}
-			})
+		$(function() {
+	$("#firstletters").on('input',function(e){
+	//alert('change');
+	$("#insert-auteurs").html('<div class="text-center"><%= j image_tag "loading-glasses.gif"%></div>');
+		var letters = $("#firstletters").val();
+		$.ajax({
+		url : "/auteurs.js",
+		type : "GET",
+		dataType: "script",
+		data : {
+		starting_letter : letters
+
+		}
 		})
-	}); 
+		})
+		});
 </script>

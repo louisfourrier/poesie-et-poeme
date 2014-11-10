@@ -23,12 +23,17 @@
         <td><%= auteur.date_string %></td>
         
         <td class="hidden-xs"><%= auteur.description%></td>
-        <td class="hidden-xs"><%= auteur.country %></td>
+        <td class="hidden-xs"><%= image_tag auteur.country_image, :alt => auteur.country_alt_code, :class => "flag_image" %></td>
         
       </tr>
     <% end %>
   </tbody>
 </table>
+
+<% if auteurs.empty? %>
+<div class="alert alert-warning text-bigger text-center">Aucun auteur trouvé</div>
+<% end %>
+
 <div class="text-center">
 	<%= will_paginate(@auteurs, :params => { :controller => "auteurs", :action => "index", :format => "html" },  renderer: BootstrapPagination::Rails) %>
 </div>

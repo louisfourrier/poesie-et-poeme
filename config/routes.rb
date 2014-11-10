@@ -2,7 +2,11 @@ Rails.application.routes.draw do
 
   resources :poemes
 
-  resources :auteurs
+  resources :auteurs do
+    collection do 
+      get 'categories'
+    end
+  end
 
   root to: 'home#main'
   get 'home/main'

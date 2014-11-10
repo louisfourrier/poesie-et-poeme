@@ -8,50 +8,14 @@
 
 <div itemscope itemtype="http://schema.org/Author" class="row">
 
-	<div class="col-sm-3 sidebar">
-		<div class="nadvence-box col-md-12">
-			<div class="box-title">
-				Informations
-			</div>
-			<p>
-				<img src="<%= @auteur.image_url %>" class="img-responsive" itemprop="image" alt="<%= @auteur.name %> - Photo" />
-			</p>
-			
-			
-			<p>
-				<strong>Wikipedia Url:</strong>
-				<%= link_to @auteur.wikipedia_url, @auteur.wikipedia_url, :itemprop => "sameAs" %>
-			</p>
-			<p>
-				<strong>Pays d'origine:</strong>
-				<span itemprop="nationality"><%= @auteur.country %></span>
-			</p>
-
-			<p>
-				<strong>Dates:</strong>
-				<span itemprop="birthDate"><%= @auteur.birth_date_f  %></span> - <span itemprop="deathDate"><%= @auteur.death_date_f  %></span>
-
-			</p>
-
-		</div>
-		<div class="nadvence-box col-md-12">
-			<div class="box-title">
-				Recueils
-			</div>
-			<% @auteur.recueil_set.each do |r|%>
-			<%= r %> <br/>
-			
-			<% end %>
-			</div>
-
-	</div>
+	
 	<div class="col-sm-9 col-sm-offset-3">
 		<h1 class="page-header text-center nadvence-box box-big-title"><strong class="color-nadvence" itemprop="name"><%= @auteur.name %></strong></h1>
 
 		<div class="poeme-content" itemprop="description">
 			<%= @auteur.description  %>
 		</div>
-		<h2>Ses poèmes (<%= @auteur.poemes.size%>)</h2>
+		<h2 class="nadvence-family">Ses poèmes (<%= @auteur.poemes.size%>)</h2>
 
 		<table class="table table-poeme dataTable">
 			<thead>
@@ -74,6 +38,48 @@
 				<% end %>
 			</tbody>
 		</table>
+
+	</div>
+	
+	<div class="col-sm-3 sidebar">
+		<div class="nadvence-box col-md-12">
+			<div class="box-title">
+				Informations
+			</div>
+			<p>
+				<img src="<%= @auteur.image_url %>" class="img-responsive" itemprop="image" alt="<%= @auteur.name %> - Photo" />
+			</p>
+			
+			
+			<p>
+				
+				<strong><%= link_to "Biographie sur Wikipedia", @auteur.wikipedia_url, :itemprop => "sameAs", :target => "_blank" %></strong>
+			</p>
+			<p>
+				<strong>Pays d'origine:</strong>
+				<span itemprop="nationality"><%= @auteur.country %></span>
+				<span><%= image_tag @auteur.country_image, :alt => @auteur.country_alt_code, :class => "flag_image" %></span>
+			</p>
+
+			<p>
+				<strong>Dates:</strong>
+				<span itemprop="birthDate"><%= @auteur.birth_date_f  %></span> - <span itemprop="deathDate"><%= @auteur.death_date_f  %></span>
+
+			</p>
+
+		</div>
+		<div class="nadvence-box col-md-12">
+			<div class="box-title">
+				Recueils
+			</div>
+			<% @auteur.recueil_set.each do |r|%>
+			<%= r %> <br/>
+			<% end %>
+			
+			<% if @auteur.recueil_set.empty?%>
+			Pas de recueil
+			<% end %>
+			</div>
 
 	</div>
 

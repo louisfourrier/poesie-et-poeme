@@ -14,6 +14,12 @@ class AuteursController < ApplicationController
     end
     
   end
+  
+  def categories
+    country = params[:country] || ""
+    century = params[:century] || ""
+    @auteurs = Auteur.filter(params).paginate(:page => params[:page], :per_page => 100)
+  end
 
   # GET /auteurs/1
   # GET /auteurs/1.json

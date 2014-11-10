@@ -5,6 +5,18 @@
 
 <div class="row" itemscope itemtype="http://schema.org/CreativeWork">
 
+	
+	<div class="col-sm-9 col-sm-offset-3">
+		<h1 class="page-header text-center nadvence-box box-big-title">Poème : <strong class="color-nadvence" itemprop="headline"><%= @poeme.title %></strong></h1>
+		<br />
+		<div class="text-center poeme-content" itemprop="text">
+			<%= @poeme.content.html_safe%>
+		</div>
+
+		<br />
+
+	</div>
+	
 	<div class="col-sm-3 sidebar">
 		<div class="nadvence-box col-md-12" itemprop="author" itemscope itemtype="http://schema.org/Author">
 			<div class="text-center">
@@ -23,6 +35,7 @@
 			<p>
 				<strong>Pays :</strong>
 				<span itemprop="nationality"><%= @auteur.country %></span>
+				<span><%= image_tag @auteur.country_image, :alt => @auteur.country_alt_code, :class => "flag_image" %></span>
 			</p>
 
 			<p>
@@ -36,6 +49,7 @@
 			</p>
 
 		</div>
+		<% if @poeme.recueil && !@poeme.recueil.empty? %>
 		<div class="nadvence-box col-md-12">
 			<div class="box-title">
 				Recueil du poème
@@ -43,8 +57,10 @@
 			<p>
 
 				<%= @poeme.recueil %>
+				
 			</p>
 		</div>
+		<% end %>
 		<div class="nadvence-box col-md-12">
 			<div class="box-title">
 				Autres Poèmes de l'auteur
@@ -56,16 +72,6 @@
 			</p>
 			<% end %>
 		</div>
-
-	</div>
-	<div class="col-sm-9 col-sm-offset-3">
-		<h1 class="page-header text-center nadvence-box box-big-title">Poème : <strong class="color-nadvence" itemprop="headline"><%= @poeme.title %></strong></h1>
-		<br />
-		<div class="text-center poeme-content" itemprop="text">
-			<%= @poeme.content.html_safe%>
-		</div>
-
-		<br />
 
 	</div>
 

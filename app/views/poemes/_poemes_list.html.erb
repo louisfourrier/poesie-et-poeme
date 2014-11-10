@@ -29,6 +29,11 @@
     <% end %>
   </tbody>
 </table>
+
+<% if poemes.empty? %>
+<div class="alert alert-warning text-bigger text-center">Aucun poème trouvé</div>
+<% end %>
+
 <div class="text-center">
 	<%= will_paginate(poemes, :params => { :controller => "poemes", :action => "index", :format => "html" },  renderer: BootstrapPagination::Rails) %>
 </div>

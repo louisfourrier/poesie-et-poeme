@@ -43,6 +43,29 @@ class Auteur < ActiveRecord::Base
     html = Nokogiri::HTML(self.html_content)
   end
   
+   # Filter the query for controller
+  def self.filter(attributes)
+    attributes.inject(self) do |scope, (key, value)|
+      #return scope.scoped if value.blank?
+      if value.blank?
+        scope.all
+      else
+      case key.to_sym
+      when :country
+        value = value.to_s
+        scope.where("auteurs.country ILIKE ?", "%#{value}%")
+      when :century
+        scope.by_century(value.to_i)
+      when :order # order=field-(ASC|DESC)
+        attribute, order = value.split("-") 
+        scope.order("#{self.table_name}.#{attribute} #{order}")
+      else # unknown key (do nothing or raise error, as you prefer to)
+        scope.all
+      end 
+    end
+    end
+  end
+  
   def birth_date_f
     begin
       self.date_string.split('-').first.gsub(/[\(\)]/, '')
@@ -59,8 +82,68 @@ class Auteur < ActiveRecord::Base
     end
   end
   
+  def birth_date_integer
+    string = self.birth_date_f.gsub(/\D/, '')
+    integer = string.to_i
+    if integer > 1000
+      return integer
+    else
+      return nil
+    end
+  end
+  
+  def death_date_integer
+    string = self.death_date_f.gsub(/\D/, '')
+    integer = string.to_i
+    if integer > 1000
+      return integer
+    else
+      return nil
+    end
+  end
+  
+  
+  
+  def get_century_birth(number)
+    integer = number
+    if integer
+      return (integer / 100) + 1
+    else
+      return nil
+    end
+  end
+  
+  def update_century_float
+    birth_century = self.get_century_birth(self.birth_date_integer)
+    death_century = self.get_century_birth(self.death_date_integer)
+    if birth_century && death_century
+      century = (birth_century + death_century) / 2.0
+      self.update(:century_float => century)
+    end
+  end
+  
+  def self.by_century(century)
+    century = century.to_f
+    minus_century = century - 0.5
+    more_century = century + 0.5
+    return self.where('auteurs.century_float = ? OR auteurs.century_float = ? OR auteurs.century_float = ?', century, minus_century, more_century)
+  end
+  
   def recueil_set
     self.poemes.pluck(:recueil).uniq.delete_if{|a| a.empty?}
+  end
+  
+  def country_image
+    code = self.country
+    image = code + "_drapeau.png"
+  end
+  
+  def country_alt_code
+    return self.country.to_s + " drapeau"
+  end
+  
+  def self.all_countries
+    return [["FR", "France"], ["CH", "Suisse"], ["CA", "Canada"], ["HT", "Haiti"], ["PL", "Pologne"], ["BE", "Belgique"], ["EC", "Ecosse"], ["US", "Etats-Unis"], ["RU", "Royaume uni"], ["AT", "Autriche"], ["AG", "Allemagne"]] 
   end
   
   def extract_country

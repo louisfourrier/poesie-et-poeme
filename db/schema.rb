@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141021223046) do
+ActiveRecord::Schema.define(version: 20141110202335) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20141021223046) do
     t.text     "crawl_url"
     t.text     "image_url"
     t.string   "date_string"
+    t.float    "century_float"
   end
 
   add_index "auteurs", ["research_name"], name: "index_auteurs_on_research_name", using: :btree
