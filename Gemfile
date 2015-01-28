@@ -47,7 +47,7 @@ gem 'sitemap_generator'
 #NewRelic
 gem 'newrelic_rpm'
 ## FOR PARSING
-gem 'nokogiri' # HTML Parser
+gem 'nokogiri', '1.6.2.1' # HTML Parser
 
 gem 'counter_culture'
 
