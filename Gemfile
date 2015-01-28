@@ -51,6 +51,8 @@ gem 'nokogiri' # HTML Parser
 
 gem 'counter_culture'
 
+gem 'typhoeus'
+
 
 ## APPLICATION GEMS
 

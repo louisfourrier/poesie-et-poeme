@@ -30,7 +30,7 @@
 		</div>
 		<% (14..20).to_a.each do |century| %>
 		<p>
-			<%= link_to century.to_s + " siècle", categories_auteurs_path(:century => century) %>
+			<%= link_to century.to_s + " ème siècle", categories_auteurs_path(:century => century) %>
 		</p>
 
 		<% end%>

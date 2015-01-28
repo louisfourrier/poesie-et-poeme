@@ -47,6 +47,34 @@ class Poeme < ActiveRecord::Base
     self.update(:recueil => recueil)
   end
   
+  # Method that send a tweet about a random verb in the Database
+  def self.send_tweet
+    poeme = self.order("RANDOM()").first
+    message = self.possible_messages
+    message = message + " " + poeme.title.first(70)
+    url = "http://www.poesie-et-poeme.fr" + Rails.application.routes.url_helpers.poeme_path(poeme)
+    tags = poeme.auteur.name.to_s + "," + self.possible_tags
+    SocialPresence.send_message(message, url, tags)
+  end
+  
+  def self.possible_tags
+    tab = ["poesie", "poeme", "litterature", "poesiefrancaise", "culture"]
+    return tab.shuffle.first(2).join(',')
+  end
+  
+  # All the different messages for the tweet
+  def self.possible_messages
+    tab = []
+    tab << "Poésie francaise : "
+    tab << "Connaissez vous le Poème :"
+    tab << "Beau poème "
+    tab << "Toute la poésie francaise : "
+    tab = tab.shuffle
+    return tab.first  
+  end
+  
+  
+  
   def self.execute_class_method(method_name)
     self.find_each do |a|
       a.send(method_name)
