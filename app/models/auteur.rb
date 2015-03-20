@@ -103,6 +103,31 @@ class Auteur < ActiveRecord::Base
   end
   
   
+  # Method that send a tweet about a random verb in the Database
+  def self.send_tweet
+    auteur = self.order("RANDOM()").first
+    message = self.possible_messages
+    message = message + " " + auteur.name
+    url = "http://www.poesie-et-poeme.fr" + Rails.application.routes.url_helpers.auteur_path(auteur)
+    tags = auteur.name.to_s + "," + self.possible_tags
+    SocialPresence.send_message(message, url, tags)
+  end
+  
+   def self.possible_tags
+    tab = ["poesie", "poeme", "litterature", "poesiefrancaise", "culture"]
+    return tab.shuffle.first(2).join(',')
+  end
+  
+  # All the different messages for the tweet
+  def self.possible_messages
+    tab = []
+    tab << "Poésie francaise : "
+    tab << "Connaissez vous l'auteur :"
+    tab << "Toute la poésie francaise : "
+    tab << "Toute la poésie de "
+    tab = tab.shuffle
+    return tab.first  
+  end
   
   def get_century_birth(number)
     integer = number
