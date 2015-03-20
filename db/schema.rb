@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20141110202335) do
     t.text     "description_source"
     t.date     "birth_date"
     t.date     "death_date"
-    t.integer  "poemes_count"
+    t.integer  "poemes_count",       default: 0, null: false
     t.integer  "century"
     t.string   "first_letter"
     t.string   "slug"

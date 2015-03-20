@@ -84,14 +84,6 @@ body {
   margin-bottom: 60px;
 }
 
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  /* Set the fixed height of the footer here */
-  height: 60px;
-  background-color: #f5f5f5;
-}
 
 
 .main-container{
@@ -99,23 +91,6 @@ body {
   height: 100%;
 }
 
-.navbar-nadvence{
-  color: grey;
-  background-color: white;
-  border-bottom: 1px solid #e7e7e7 !important;
-  
-}
-.navbar-brand{
-  color: #28c3ab !important;
-  font-size: inherit;
-  
-}
-
-.navbar-nav{
-  li{
-    font-size: 16px;
-  }
-}
 
 .nadvence-bg {
    background: url(background-nadvence.jpg) no-repeat center center fixed; 
@@ -185,49 +160,8 @@ a:hover{
 	color: $nadvence;
 }
 
-h1.navbar-h1{
-  margin: 0px;
-  font-size: 30px;
-  padding-bottom: 10px;
-}
+
 
 .nadvence-header{
   color: #28c3ab !important;
 }
-
-// CSS checcbox
-
-input[type=checkbox].css-checkbox {
-  display: none;
-}
-
-input[type=checkbox].css-checkbox + label.css-label {
-  padding-left: 25px;
-  height: 20px;
-  display: inline-block;
-  line-height: 20px;
-  background-repeat: no-repeat;
-  background-position: 0 0;
-  //font-size: 20px;
-  vertical-align: middle;
-  cursor: pointer;
-}
-
-input[type=checkbox].css-checkbox:checked + label.css-label {
-  background-position: 0 -20px;
-}
-
-
-label.css-label {
-  margin: 2px;
-  background-image: url(<%= asset_path 'checkbox_green_nadvence.png' %>);
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  vertical-align: baseline !important;
-}
-
-
